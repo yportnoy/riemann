@@ -12,7 +12,7 @@ execute "apt-get update"
   end
 end
 
-package node[:riemann][:jdk] do
+package node[:riemann][:jdk_package] do
   action [:install]
 end
 
