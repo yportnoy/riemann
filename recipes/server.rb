@@ -22,7 +22,7 @@ script "install_riemann" do
   wget #{node[:riemann][:riemann_tarball_location]} || STATUS=1
   mkdir #{node[:riemann][:riemann_install_location]} || STATUS=1
   tar xvfj /opt/#{node[:riemann][:riemann_tarball]} || STATUS=1
-  cp /opt/#{node[:riemann][:riemann_version]}/* /opt/riemann/
+  cp -R /opt/#{node[:riemann][:riemann_version]}/* /opt/riemann/
   rm -rf /opt/#{node[:riemann][:riemann_version]}
   exit $STATUS
   EOH
