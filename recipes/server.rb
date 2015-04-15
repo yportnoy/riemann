@@ -6,10 +6,14 @@
 
 execute "apt-get update"
 
-%w{build-essential wget libyaml-dev zlib1g-dev libreadline-dev libssl-dev tk-dev libgdbm-dev openjdk-6-jdk gem}.each do |pkg|
+%w{build-essential wget libyaml-dev zlib1g-dev libreadline-dev libssl-dev tk-dev libgdbm-dev gem}.each do |pkg|
   package pkg do
     action [:install]
   end
+end
+
+package node[:riemann][:jdk] do
+  action [:install]
 end
 
 script "install_riemann" do
